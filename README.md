@@ -1,6 +1,6 @@
-# Prettyusers
+# Pretty Users
 
-TODO: Write a gem description
+This gem allows you to generate pretty user's information with an avatar, name, password, email, gender, phone ... 
 
 ## Installation
 
