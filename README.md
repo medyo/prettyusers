@@ -18,7 +18,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### One Random user ###
+gender is optional (male or female)
+
+``` ruby
+Prettyusers.random({:gender => 'male'})
+```
+
+### Multi users ###
+Gender and count are optional
+Gender accepts : male or female
+Count accepts a value between 1 and 5
+
+``` ruby
+Prettyusers.generate({:gender => 'female', :count => 3})
+```
+
+### Access data ###
+
+``` ruby
+user = Prettyusers.random.email
+users = Prettyusers.generate(:count => 2).first.email
+```
+
+`name[:firtname]`, `name[:lastname]`,`picture`,`location[:street]`,`location[:city]`,`location[:zip]`,`location[:state]`, `gender`, `email`, `password`, `md5_password`, `sha1_hash`,`phone`,`cell`,`SSN` 
+
 
 ## Contributing
 
