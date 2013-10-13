@@ -20,6 +20,9 @@ Or install it yourself as:
     
 Restart your server
 
+## Demo View
+
+![alt tag](https://raw.github.com/medyo/prettyusers/master/demo_prettyusers.png)
 
 ## Usage
 
