@@ -2,6 +2,8 @@
 
 This gem allows you to generate pretty user's information with an avatar, name, password, email, gender, phone ... 
 
+Based on http://randomuser.me/ api
+
 ## Installation
 
 Add this line to your application's Gemfile:
