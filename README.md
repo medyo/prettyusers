@@ -35,8 +35,11 @@ Prettyusers.random({:gender => 'male'})
 
 ### Multi users ###
 Gender and count are optional
+
 Gender accepts : male or female
+
 Count accepts a value between 1 and 5
+
 
 ``` ruby
 Prettyusers.generate({:gender => 'female', :count => 3})
