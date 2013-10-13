@@ -1,6 +1,6 @@
 # Prettyusers
 
-TODO: Write a gem description
+Generate pretty user's data for your tests
 
 ## Installation
 
