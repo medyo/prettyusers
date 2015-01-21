@@ -1,4 +1,5 @@
 # Pretty Users
+![Preview](https://raw.github.com/medyo/prettyusers/master/demo_prettyusers.png)
 
 This gem allows you to generate pretty user's information with an avatar, name, password, email, gender, phone ... 
 
@@ -18,12 +19,6 @@ Or install it yourself as:
 
     $ gem install prettyusers
     
-Restart your server
-
-## Demo View
-
-![alt tag](https://raw.github.com/medyo/prettyusers/master/demo_prettyusers.png)
-
 ## Usage
 
 ### One Random user ###
@@ -38,7 +33,7 @@ Gender and count are optional
 
 Gender accepts : male or female
 
-Count accepts a value between 1 and 5
+Count accepts a value between 1 and 100
 
 
 ``` ruby

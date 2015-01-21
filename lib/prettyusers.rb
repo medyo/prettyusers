@@ -6,6 +6,7 @@ module Prettyusers
     class User
         @@fields = [
           :gender,
+          :title,
           :name,
           :location,
           :email,
@@ -37,9 +38,9 @@ module Prettyusers
         (!gender.nil? and ['male','female'].include? gender.downcase) ? '&gender='+gender : '' 
     end
 
-    # Build Count of results Uri (Max 5)
+    # Build Count of results Uri (Max 100)
     def self.count_uri(count)
-        (!count.nil? and (1..5).include?(count)) ? '?results='+count.to_s : '?results=1'
+        (!count.nil? and (1..100).include?(count)) ? '?results='+count.to_s : '?results=1'
     end
 
     # Exec the request
@@ -53,26 +54,32 @@ module Prettyusers
         end
         
         uri  = URI.parse(uri)
-        http = Net::HTTP.new(uri.host, uri.port)
 
-        http.start do |connection|
-            response = connection.send_request(:get, uri.request_uri)
-            response = JSON.parse(response.body, symbolize_names: true)
+        response = Net::HTTP.start(uri.host) do |http|
+            http.get uri.request_uri, 'User-Agent' => 'PrettyUsers' 
+        end
+
+         case response
+            when Net::HTTPRedirection
+            when Net::HTTPSuccess
+              response = JSON.parse(response.body, symbolize_names: true)
             
-            if(response[:results].count>0)
-                users = Array.new
-                response[:results].each do |u|
+              if(response[:results].count>0)
+                  users = Array.new
+                  response[:results].each do |u|
 
-                    r = u[:user] # minifying :)
-                    name = {:firstname => r[:name][:first], :lastname => r[:name][:last]}
-                    location = {:street => r[:location][:street], :city =>r[:location][:city], :state => r[:location][:state], :zip => r[:location][:zip]}
-                   
-                    u = User.new({:name => name,:picture=>r[:picture],:gender => r[:gender],:location => location,:email => r[:email],:password =>r[:password], :md5_hash =>r[:md5_hash], :sha1_hash => r[:sha1_hash], :phone => r[:phone], :cell => r[:cell], :SSN => r[:SSN], })
-                    users.push(u)
+                      r = u[:user] # minifying :)
+                      name = {:title =>r[:title], :firstname => r[:name][:first], :lastname => r[:name][:last]}
+                      location = {:street => r[:location][:street], :city =>r[:location][:city], :state => r[:location][:state], :zip => r[:location][:zip]}
+                     
+                      u = User.new({:name => name,:picture=>r[:picture],:gender => r[:gender],:location => location,:email => r[:email],:password =>r[:password], :md5_password =>r[:md5], :sha1_hash => r[:sha1], :phone => r[:phone], :cell => r[:cell], :SSN => r[:SSN]})
+                      users.push(u)
 
-                end
-                users.count == 1 ? users.first : users
-            end
+                  end
+                  users.count == 1 ? users.first : users
+              end
+            else
+              response.error!
         end
 
         

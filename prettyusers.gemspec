@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["El Mehdi Sakout"]
   spec.email         = ["elmehdi.sakout@gmail.com"]
   spec.description   = %q{Generate pretty users for your tests}
-  spec.summary       = %q{This gem allows you to generate pretty user's information with an avatar, name, password, email, gender, phone ... }
+  spec.summary       = %q{This Gem generate pretty user's information with an avatar, name, password, email, gender, phone ... }
   spec.homepage      = "https://github.com/medyo/prettyusers"
   spec.license       = "MIT"
 
@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", '~> 0'
 end
