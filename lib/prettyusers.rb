@@ -6,6 +6,7 @@ module Prettyusers
     class User
         @@fields = [
           :gender,
+          :username,
           :title,
           :name,
           :location,
@@ -72,7 +73,7 @@ module Prettyusers
                       name = {:title =>r[:title], :firstname => r[:name][:first], :lastname => r[:name][:last]}
                       location = {:street => r[:location][:street], :city =>r[:location][:city], :state => r[:location][:state], :zip => r[:location][:zip]}
                      
-                      u = User.new({:name => name,:picture=>r[:picture],:gender => r[:gender],:location => location,:email => r[:email],:password =>r[:password], :md5_password =>r[:md5], :sha1_hash => r[:sha1], :phone => r[:phone], :cell => r[:cell], :SSN => r[:SSN]})
+                      u = User.new({:name => name,:username =>r[:username], :picture=>r[:picture],:gender => r[:gender],:location => location,:email => r[:email],:password =>r[:password], :md5_password =>r[:md5], :sha1_hash => r[:sha1], :phone => r[:phone], :cell => r[:cell], :SSN => r[:SSN]})
                       users.push(u)
 
                   end

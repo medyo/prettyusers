@@ -47,7 +47,7 @@ user = Prettyusers.random.email
 users = Prettyusers.generate(:count => 2).first.email
 ```
 
-`name[:firtname]`, `name[:lastname]`,`picture`,`location[:street]`,`location[:city]`,`location[:zip]`,`location[:state]`, `gender`, `email`, `password`, `md5_password`, `sha1_hash`,`phone`,`cell`,`SSN` 
+`name[:firtname]`, `name[:lastname]`,`username`,`picture`,`location[:street]`,`location[:city]`,`location[:zip]`,`location[:state]`, `gender`, `email`, `password`, `md5_password`, `sha1_hash`,`phone`,`cell`,`SSN` 
 
 
 ## Contributing
